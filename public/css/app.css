@@ -11100,6 +11100,20 @@ a.text-dark:focus {
   }
 }
 
+.title {
+  font-size: 4em;
+  margin-bottom: 5%;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
 body {
   margin: 0;
 }
