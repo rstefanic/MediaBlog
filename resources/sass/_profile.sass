@@ -1,0 +1,38 @@
+.profile-bio
+    font-size: 1.1em
+    font-weight: bold
+
+.article-wrapper
+    position: relative
+    padding: 0
+    text-align: center
+    overflow: hidden
+
+    &:hover .title-overlay
+        width: 100%
+        overflow: hidden
+
+.article-img
+    height: 230px
+    object-fit: cover
+
+.title-overlay
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0, 0, 0, .3)
+    overflow: hidden
+    width: 0
+    height: 100%
+    transition: .5s ease
+    word-wrap: normal
+
+.title-text
+    font-weight: bold
+    color: white
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    white-space: nowrap

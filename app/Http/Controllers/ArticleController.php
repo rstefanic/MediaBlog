@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Comment;
+use App\Article;
+use Illuminate\Http\Request;
+use Parsedown;
+
+class ArticleController extends Controller
+{
+    public function create()
+    {
+        return view('article.create');
+    }
+
+    public function index()
+    {
+        $articles = Article::all();
+        return view('article.index', ['articles' => $articles]);
+    }
+
+    public function store()
+    {
+        $data = request()->validate([
+            'title' => ['required', 'unique:article', 'max:255'],
+            'summary' => 'required',
+            'body' => 'required',
+            'image' => ['required', 'image']
+        ]);
+
+        // TODO: Verify body as being valid, and safe Markdown
+        $image_path = request("image")->store('/uploads', 'public');
+
+        //Replace spaces with '-'; strip special characters
+        $slug = preg_replace('/[[:space:]]+/', '-', $data['title']);
+        $slug = preg_replace('/[^A-Za-z0-9-]/', "", $slug);
+        $slug = strtolower($slug);
+
+        // Article::create takes an array of data in order to
+        // create a new article, but request()->validate()
+        // already returns an array of our data! So we can
+        // just pass the array in to create()!
+        // Article::create($data);
+
+        auth()->user()->articles()->create([
+            'title' => $data['title'],
+            'summary' => $data['summary'],
+            'body' => $data['body'],
+            'image' => $image_path,
+            'slug' => $slug
+        ]);
+
+        return redirect('/profile/' . auth()->user()->username);
+    }
+
+    public function show($article)
+    {
+        $article = Article::where('slug', '=', $article)->firstOrFail();
+
+        $current_user = auth()->user();
+
+        // TODO: Check to make sure the text passed to parsedown is safe
+        $parsedown = new Parsedown();
+        $body = $parsedown->text($article->body);
+
+        $comments = $article->comments();
+        $comments = $comments->with('user')->get();
+
+        return view('article.show', array(
+            'article_id' => $article['id'],
+            'title' => $article['title'],
+            'body' => $body,
+            'summary' => $article['summary'],
+            'image' => $article->articleHeroImage(),
+            'last_updated' => $article['updated_at'],
+            'author' => $article->user->name,
+            'author_image' => $article->user->profileImage(),
+            'author_username' => $article->user->username,
+            'bio' => $article->user->bio,
+            'user' => $current_user,
+            'comments' => $comments
+        ));
+    }
+}
