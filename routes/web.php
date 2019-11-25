@@ -24,6 +24,10 @@ Route::get('/article/create', 'ArticleController@create');
 Route::get('/article/{article}', 'ArticleController@show');
 Route::post('/article', 'ArticleController@store');
 
+Route::get('/about', 'HomeController@about');
+Route::get('/donate', 'HomeController@donate');
+
 Route::get('/profile/{username}', 'ProfileController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.patch');
+
