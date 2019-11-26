@@ -38,10 +38,10 @@
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/donate') }}">Donate</a>
+                            <a class="nav-link" href="{{ url('/about') }}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/about') }}">About</a>
+                            <a class="nav-link" href="{{ url('/donate') }}">Donate</a>
                         </li>
                     </ul>
 
@@ -89,7 +89,14 @@
         </main>
 
         <footer>
-
+            <div class="bottom-links d-flex justify-content-around">
+                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ url('/about') }}">About</a>
+                <a href="{{ url('/donate') }}">Donate</a>
+            </div>
+            <div class="main-footer">
+                Media In Focus &copy;2019
+            </div>
         </footer>
     </div>
 </body>
