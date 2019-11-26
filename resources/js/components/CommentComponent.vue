@@ -2,11 +2,11 @@
     <div class="panel-body">
         <div class="d-flex align-items-center">
             <div>
-                <a href="/profile/${username}">
+                <a v-bind:href="profileLink">
                     <img class="user-picture" v-bind:src="profile_picture" alt="Commentator's profile picture">
                 </a>
             </div>
-            <div class="ml-3"> <div class="mr-3 user-name-div"><strong><a href="/profile/${username}">{{ username }}</a></strong> <span class="posted">{{ postedCalculation }}</span></div>
+            <div class="ml-3"> <div class="mr-3 user-name-div"><strong><a v-bind:href="profileLink">{{ username }}</a></strong> <span class="posted">{{ postedCalculation }}</span></div>
                 <div class="comment-text">
                     {{ comment }}
                 </div>
@@ -20,6 +20,8 @@
         props: ['username', 'profile_picture', 'date', 'comment'],
 
         computed: {
+            profileLink: function() { return '/profile/' + this.username; },
+
             postedCalculation: function() {
                 const year = 31536000;
                 const day = 86400;
