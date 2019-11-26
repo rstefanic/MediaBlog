@@ -16,8 +16,15 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::all();
-        return view('article.index', ['articles' => $articles]);
+        $articles = Article::orderBy('created_at', 'desc')->get();
+
+        $featured_article = $articles->first();
+        $articles = $articles->where('id', '!=', $featured_article->id);
+
+        return view('article.index', [
+            'featured_article' => $featured_article,
+            'articles' => $articles
+        ]);
     }
 
     public function store()
