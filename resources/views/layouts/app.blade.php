@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Media In Focus</title>
+    <title>Media In Focus - @yield('title', 'Home')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -87,6 +87,10 @@
         <main>
             @yield('content')
         </main>
+
+        <footer>
+
+        </footer>
     </div>
 </body>
 </html>
