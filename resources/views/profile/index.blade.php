@@ -30,7 +30,7 @@
                                     articles
                                 @endif
                             </div>
-                            <div class="pr-3"><strong>30</strong> comments</div>
+                            <div class="pr-3"><strong>{{ $comment_count }}</strong> comments</div>
                         </div>
                         <div>Member since <strong>{{ $created_on }}</strong></div>
                     </div>

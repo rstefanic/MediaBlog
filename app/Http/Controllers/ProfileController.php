@@ -11,9 +11,12 @@ class ProfileController extends Controller
     {
         $user = User::where('username', '=', $username)->firstOrFail();
 
+        $comment_count = $user->comments->where('user_id', $user->id)->count();
+
         return view('profile.index', [
             'user' => $user,
-            'created_on' => $user->created_at->format("F Y")
+            'created_on' => $user->created_at->format("F Y"),
+            'comment_count' => $comment_count
         ]);
     }
 
