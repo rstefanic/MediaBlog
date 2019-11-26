@@ -1894,6 +1894,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['username', 'profile_picture', 'date', 'comment'],
   computed: {
+    profileLink: function profileLink() {
+      return '/profile/' + this.username;
+    },
     postedCalculation: function postedCalculation() {
       var year = 31536000;
       var day = 86400;
@@ -38067,7 +38070,7 @@ var render = function() {
   return _c("div", { staticClass: "panel-body" }, [
     _c("div", { staticClass: "d-flex align-items-center" }, [
       _c("div", [
-        _c("a", { attrs: { href: "/profile/${username}" } }, [
+        _c("a", { attrs: { href: _vm.profileLink } }, [
           _c("img", {
             staticClass: "user-picture",
             attrs: {
@@ -38081,7 +38084,7 @@ var render = function() {
       _c("div", { staticClass: "ml-3" }, [
         _c("div", { staticClass: "mr-3 user-name-div" }, [
           _c("strong", [
-            _c("a", { attrs: { href: "/profile/${username}" } }, [
+            _c("a", { attrs: { href: _vm.profileLink } }, [
               _vm._v(_vm._s(_vm.username))
             ])
           ]),
