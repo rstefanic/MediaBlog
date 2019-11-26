@@ -23,4 +23,9 @@ class Article extends Model
     {
         return '/storage/' . $this->image;
     }
+
+    public function buildFullPath()
+    {
+        return '/article/' . $this->slug;
+    }
 }
