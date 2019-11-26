@@ -18,14 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::post('/comment/{article}', 'CommentController@store');
+Route::get('/about', function() {
+	return view('about');
+});
 
 Route::get('/', 'ArticleController@index');
 Route::get('/article/create', 'ArticleController@create');
 Route::get('/article/{article}', 'ArticleController@show');
 Route::post('/article', 'ArticleController@store');
 
-Route::get('/about', 'HomeController@about');
-Route::get('/donate', 'HomeController@donate');
+Route::get('/donate', 'DonateController@index')->name('donate.show');
 
 Route::get('/profile/{username}', 'ProfileController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
