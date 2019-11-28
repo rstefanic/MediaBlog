@@ -37,6 +37,12 @@
 </script>
 
 <style scoped>
+    img.user-picture {
+        border-radius: 10px;
+        max-width: 50px;
+        margin-right: 2%;
+    }
+
     textarea {
         resize: none;
     }

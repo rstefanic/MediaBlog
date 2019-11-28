@@ -65,6 +65,12 @@
 </script>
 
 <style scoped>
+    img.user-picture {
+        border-radius: 10px;
+        max-width: 50px;
+        margin-right: 2%;
+    }
+
     .user-name-div strong a {
         color: #000;
     }
