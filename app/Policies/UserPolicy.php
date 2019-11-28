@@ -7,6 +7,11 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy
 {
+    const USER = 0;
+    const AUTHOR = 1;
+    const MODERATOR = 2;
+    const ADMIN = 3;
+
     use HandlesAuthorization;
 
     /**
@@ -38,9 +43,10 @@ class UserPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user, User $model)
     {
-        //
+       return ($user->id == $model->id && $user->role >= UserPolicy::AUTHOR) ||
+            ($user->role == UserPolicy::ADMIN);
     }
 
     /**
@@ -52,7 +58,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        return $user->id == $model->id;
+        return $user->id == $model->id || $user->role == UserPolicy::Admin;
     }
 
     /**
