@@ -11113,7 +11113,7 @@ a.text-dark:focus {
   text-align: left;
   position: absolute;
   top: 75%;
-  left: 25%;
+  left: 35%;
   padding: 2%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -11123,7 +11123,7 @@ a.text-dark:focus {
 }
 
 .home-hero-text h1 {
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .home-hero-text .home-hero-summary {
