@@ -17,7 +17,7 @@
                     <input id="title" 
                         type="text" 
                         class="form-control @error('title') is-invalid @enderror" 
-                        name="title" value="{{ old('title') }}" 
+                        name="title" value="{{ old('title') ?? (isset($article) ? $article->title : '') }}" 
                         required 
                         autocomplete="title" autofocus>
 
@@ -33,7 +33,7 @@
                     <input id="summary" 
                         type="text" 
                         class="form-control @error('summary') is-invalid @enderror" 
-                        name="summary" value="{{ old('summary') }}" 
+                        name="summary" value="{{ old('summary') ?? (isset($article) ? $article->summary : '') }}" 
                         required 
                         autocomplete="summary" autofocus>
 
@@ -52,7 +52,7 @@
                         rows="20"
                         required 
                         autocomplete="body" autofocus
-                    >{{ old('body') }}</textarea>
+                    >{{ old('body') ?? (isset($article) ? $article->body : "") }}</textarea>
 
                     @error('body')
                         <span class="invalid-feedback" role="alert">
