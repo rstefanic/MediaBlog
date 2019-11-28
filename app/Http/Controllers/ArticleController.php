@@ -18,8 +18,13 @@ class ArticleController extends Controller
     {
         $articles = Article::orderBy('created_at', 'desc')->get();
 
-        $featured_article = $articles->first();
-        $articles = $articles->where('id', '!=', $featured_article->id);
+        if ($articles->count() > 0) {
+            $featured_article = $articles->first();
+            $articles = $articles->where('id', '!=', $featured_article->id);
+        }
+        else {
+            $featured_article = $articles;
+        }
 
         return view('article.index', [
             'featured_article' => $featured_article,
