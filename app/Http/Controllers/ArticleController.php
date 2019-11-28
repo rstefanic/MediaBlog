@@ -74,19 +74,20 @@ class ArticleController extends Controller
         $comments = $article->comments();
         $comments = $comments->with('user')->get();
 
-        return view('article.show', array(
-            'article_id' => $article['id'],
-            'title' => $article['title'],
+        return view('article.show', [
+            'article' => $article,
             'body' => $body,
-            'summary' => $article['summary'],
-            'image' => $article->articleHeroImage(),
-            'last_updated' => $article['updated_at'],
-            'author' => $article->user->name,
-            'author_image' => $article->user->profileImage(),
-            'author_username' => $article->user->username,
-            'bio' => $article->user->bio,
-            'user' => $current_user,
+            'current_user' => $current_user,
             'comments' => $comments
-        ));
+        ]);
+    }
+
+    public function edit($article)
+    {
+        $full_article = Article::where('slug', '=', $article)->firstOrFail();
+        $this->authorize('update', $full_article); 
+        return view('article.create', [
+            'article' => $full_article
+        ]);
     }
 }
