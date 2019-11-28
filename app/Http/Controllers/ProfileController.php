@@ -12,11 +12,13 @@ class ProfileController extends Controller
         $user = User::where('username', '=', $username)->firstOrFail();
 
         $comment_count = $user->comments->where('user_id', $user->id)->count();
+        $recent_comments = $user->comments->where('user_id', $user->id);
 
         return view('profile.index', [
             'user' => $user,
             'created_on' => $user->created_at->format("F Y"),
-            'comment_count' => $comment_count
+            'comment_count' => $comment_count,
+            'recent_comments' => $recent_comments
         ]);
     }
 

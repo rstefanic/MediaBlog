@@ -15,7 +15,7 @@
                     <div class="col-9 pt-5 pl-5">
                         <div class="d-flex justify-content-between align-items-baseline">
                             <h3>{{ $user->username }}</h3>
-                            @can('update', $user)
+                            @can('create', $user)
                                 <a href="/article/create">Add Article</a>
                             @endcan
                         </div>
@@ -58,6 +58,21 @@
                                 </div>
                             @endforeach
                         </div>
+                    </div>
+                @endif
+
+                @if ($comment_count > 0)
+                    <div class="card-body">
+                        <h2>Recent Comments</h2>
+                            @foreach($recent_comments as $comment)
+                                <hr>
+                                <comment
+                                    username="{{ $user->username }}"
+                                    profile_picture="{{ $user->profileImage() }}"
+                                    date="{{ $comment->created_at }}"
+                                    comment="{{ $comment->comment }}"
+                                ></comment>
+                            @endforeach
                     </div>
                 @endif
             </div>
