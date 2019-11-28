@@ -22,7 +22,7 @@ window.Vue = require('vue');
 Vue.component('new-comment', require('./components/NewCommentComponent.vue').default);
 Vue.component('comment', require('./components/CommentComponent.vue').default);
 Vue.component('article-card', require('./components/ArticleCardComponent.vue').default);
-Vue.component('article-body', require('./components/ArticleBodyComponent.vue').default);
+Vue.component('view-article', require('./components/ViewArticleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
