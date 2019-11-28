@@ -6455,7 +6455,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.user-name-div strong a[data-v-d6b6866e] {\n    color: #000;\n}\n.posted[data-v-d6b6866e] {\n    color: #969696;\n}\n", ""]);
+exports.push([module.i, "\nimg.user-picture[data-v-d6b6866e] {\n    border-radius: 10px;\n    max-width: 50px;\n    margin-right: 2%;\n}\n.user-name-div strong a[data-v-d6b6866e] {\n    color: #000;\n}\n.posted[data-v-d6b6866e] {\n    color: #969696;\n}\n", ""]);
 
 // exports
 
@@ -6474,7 +6474,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntextarea[data-v-f62b53fa] {\n    resize: none;\n}\n", ""]);
+exports.push([module.i, "\nimg.user-picture[data-v-f62b53fa] {\n    border-radius: 10px;\n    max-width: 50px;\n    margin-right: 2%;\n}\ntextarea[data-v-f62b53fa] {\n    resize: none;\n}\n", ""]);
 
 // exports
 

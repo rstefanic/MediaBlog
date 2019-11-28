@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -11159,7 +11159,21 @@ a.text-dark:focus {
 }
 
 body {
+  font-family: "Open Sans", sans-serif;
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Archivo", serif;
+}
+
+main {
+  min-height: calc(100vh - 12rem);
 }
 
 footer {
@@ -11168,8 +11182,8 @@ footer {
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.65);
   margin-top: auto;
-  padding-bottom: 3.6rem;
-  padding-top: 3.6rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   position: relative;
   z-index: 23;
   text-align: center;
@@ -11233,8 +11247,7 @@ footer {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  word-wrap: breakword;
-  padding: 2% 3%;
+  white-space: nowrap;
 }
 
 .hero {
@@ -11275,11 +11288,5 @@ footer {
 .bio {
   font-weight: bold;
   font-size: 1em;
-}
-
-.comments-section .user-picture {
-  border-radius: 10px;
-  max-width: 50px;
-  margin-right: 2%;
 }
 
