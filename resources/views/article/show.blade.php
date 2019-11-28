@@ -12,8 +12,10 @@
     </div>
 </div>
 
-<div class="container py-5">
-    {!! $body !!}
+<div class="container py-4">
+    <div id="article-body">
+        <article-body body="{{ $body }}"></article-body>
+    </div>
 
     <div class="card author-info mt-5">
         <div class="card-header d-flex justify-content-between">
