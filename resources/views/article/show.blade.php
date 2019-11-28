@@ -2,22 +2,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ $article->articleHeroImage() }}');">
-    <div class="hero-text">
-        <h1>
-            {{ $article->title }}
-        </h1>
-        <h3>{{ $article->summary }}</h3>
-        <h5>By: {{ $article->user->name }} </h5>
-    </div>
-</div>
+<view-article
+    title="{{ $article->title }}"
+    summary="{{ $article->summary }}"
+    author="{{ $article->user->name }}"
+    main_img="{{ $article->articleHeroImage() }}"
+    body="{{ $body }}"
+></view-article>
 
 <div class="container py-4">
-    <div id="article-body">
-        <article-body body="{{ $body }}"></article-body>
-    </div>
-
-    <div class="card author-info mt-5">
+    <div class="card author-info">
         <div class="card-header d-flex justify-content-between">
             <h2>Author</h2>
             @can('update', $article)
