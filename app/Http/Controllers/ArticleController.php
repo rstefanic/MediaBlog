@@ -41,7 +41,6 @@ class ArticleController extends Controller
             'image' => ['required', 'image']
         ]);
 
-        // TODO: Verify body as being valid, and safe Markdown
         $image_path = request("image")->store('/uploads', 'public');
 
         //Replace spaces with '-'; strip special characters
@@ -72,9 +71,12 @@ class ArticleController extends Controller
 
         $current_user = auth()->user();
 
-        // TODO: Check to make sure the text passed to parsedown is safe
         $parsedown = new Parsedown();
-        $body = $parsedown->text($article->body);
+
+        // setMarkupEscaped escapes HTML to prevent XSS, but there are still potential issues
+        // e.g. <a href="javascript:alert(1);">...</a>
+        // More info: https://github.com/erusev/parsedown/issues/652
+        $body = $parsedown->setMarkupEscaped(true)->text($article->body);
 
         $comments = $article->comments();
         $comments = $comments->with('user')->get();
