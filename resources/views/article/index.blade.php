@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="content">
-    @if($featured_article->count() == 1)
+    @if($featured_article->count() > 0)
     <div class="home-hero-image" style="background-image: url({{ $featured_article->articleHeroImage() }});">
         <div class="home-hero-text">
             <h1>{{ $featured_article-> title }}</h1>
