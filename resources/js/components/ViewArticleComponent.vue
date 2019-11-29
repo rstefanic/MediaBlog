@@ -19,10 +19,6 @@
     export default {
         props: ['title', 'summary', 'author', 'main_img', 'body'],
 
-        mounted() {
-            console.log(this.body);
-        },
-
         computed: {
             readingTime: function() {
                 const WPM = 200;
