@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Add/Edit Article')
+
 @section('content')
 <div class="container">
     <form action="/article" enctype="multipart/form-data" method="POST">

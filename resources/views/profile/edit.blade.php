@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title', 'Edit ' . $user->username)
 
+@section('content')
 <div class="container">
     <form action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="POST">
         @csrf
