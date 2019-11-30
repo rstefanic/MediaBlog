@@ -11158,6 +11158,38 @@ a.text-dark:focus {
   }
 }
 
+.donation-info {
+  text-align: center;
+}
+
+.donation-info h1,
+.donation-info h3 {
+  margin: 0 auto;
+  display: block;
+}
+
+.donation-info h3 {
+  margin-bottom: 3rem;
+}
+
+.donation-info form {
+  margin-bottom: 3rem;
+}
+
+.donation-info form p,
+.donation-info form td {
+  font-size: 1.8rem;
+}
+
+.donation-info form p {
+  margin-bottom: 3.5rem;
+}
+
+.donation-info form td select {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
