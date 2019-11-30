@@ -29,6 +29,8 @@ Route::get('/article/{article}/edit', 'ArticleController@edit');
 Route::post('/article', 'ArticleController@store');
 
 Route::get('/donate', 'DonateController@index')->name('donate.show');
+Route::get('/donate/thankyou', 'DonateController@thankyou')->name('donate.thankyou');
+Route::get('/donate/cancel', 'DonateController@cancel')->name('donate.cancel');
 
 Route::get('/profile/{username}', 'ProfileController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');

@@ -13,4 +13,34 @@ class DonateController extends Controller
         // /thankyou redirects
         return view('donate.index');
     }
+
+    public function thankyou()
+    {
+      $requestFrom = request()->headers->get('referer');
+
+      if (isset($requestFrom)) {
+        $host = parse_url($requestFrom)["host"];
+
+        if ($host === "paypal.com") {
+          return view('donate.thankyou');
+        }
+      }
+
+      return abort(404);
+    }
+
+    public function cancel()
+    {
+      $requestFrom = request()->headers->get('referer');
+
+      if (isset($requestFrom)) {
+        $host = parse_url($requestFrom)["host"];
+
+        if ($host === "paypal.com") {
+          return view('donate.cancel');
+        }
+      }
+
+      return abort(404);
+    }
 }
