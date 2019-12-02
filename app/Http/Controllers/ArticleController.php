@@ -97,4 +97,11 @@ class ArticleController extends Controller
             'article' => $full_article
         ]);
     }
+
+    public function preview()
+    {
+        $body = request()->json('body');
+        $parsedown = new Parsedown();
+        return $parsedown->setMarkupEscaped(true)->text($body);
+    }
 }
