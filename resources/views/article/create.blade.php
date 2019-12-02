@@ -63,6 +63,11 @@
                     @enderror
                 </div>
 
+                <div class="d-flex justify-content-around">
+                    <preview-article></preview-article>
+                    <button onClick="window.open('https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet', 'Markdown Cheatsheet', 'width=800,height=600'); return false;" type="button" class="btn btn-info">Markdown Cheatsheet</button>
+                </div>
+
                 <div class="row">
                     <label for="image" class="col-md-4 col-form-label">{{ __('Image') }}</label>
                     <input type="file" class="form-control-file" id="image" name="image">
@@ -72,7 +77,7 @@
                 </div>
 
                 <div class="row pt-4">
-                    <button class="btn btn-primary">Add New Article</button>
+                    <button class="btn btn-success">Add New Article</button>
                 </div>
 
             <div>
