@@ -56,6 +56,15 @@
 </script>
 
 <style>
+    .modal-dialog {
+      max-width: 800px;
+    }
+
+    .modal-content {
+      max-height: 800px;
+      overflow-y: auto;
+    }
+
     .modal-mask {
       position: fixed;
       z-index: 9998;
@@ -66,7 +75,6 @@
       background-color: rgba(0, 0, 0, .5);
       display: table;
       transition: opacity .3s ease;
-      overflow: auto;
     }
 
     .modal-wrapper {
