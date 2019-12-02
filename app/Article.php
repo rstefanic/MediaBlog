@@ -19,6 +19,11 @@ class Article extends Model
         return $this->hasMany(Comment::class); //->where('article_id', $this->id);
     }
 
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
+
     public function articleHeroImage()
     {
         return '/storage/' . $this->image;
