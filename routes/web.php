@@ -11,23 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::post('/comment/{article}', 'CommentController@store');
+Route::get('/', 'ArticleController@index')->name('article.index');
+Route::get('/article/create', 'ArticleController@create')->name('article.create');
+Route::post('/article/preview', 'ArticleController@preview')->name('article.preview');
+Route::get('/article/{article}', 'ArticleController@show')->name('article.show');
+Route::get('/article/{article}/edit', 'ArticleController@edit')->name('article.edit');
+Route::post('/article', 'ArticleController@store')->name('article.store');
+
 Route::get('/about', function() {
-	return view('about');
+    return view('about');
 });
 
-Route::get('/', 'ArticleController@index');
-Route::get('/article/create', 'ArticleController@create');
-Route::post('/article/preview', 'ArticleController@preview');
-Route::get('/article/{article}', 'ArticleController@show');
-Route::get('/article/{article}/edit', 'ArticleController@edit');
-Route::post('/article', 'ArticleController@store');
+Route::post('/comment/{article}', 'CommentController@store')->name('comment.store');
+Route::resource('tags', 'TagController', ['except' => ['create']]);
 
 Route::get('/donate', 'DonateController@index')->name('donate.show');
 Route::get('/donate/thankyou', 'DonateController@thankyou')->name('donate.thankyou');
