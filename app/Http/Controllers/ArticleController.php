@@ -6,6 +6,7 @@ use App\Comment;
 use App\Article;
 use Illuminate\Http\Request;
 use Parsedown;
+use Session;
 
 class ArticleController extends Controller
 {
@@ -61,6 +62,8 @@ class ArticleController extends Controller
             'image' => $image_path,
             'slug' => $slug
         ]);
+
+        Session::flash('success', 'Your article "' . $data['title'] . '" has been created.');
 
         return redirect('/profile/' . auth()->user()->username);
     }
