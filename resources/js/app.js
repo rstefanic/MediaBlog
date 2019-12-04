@@ -24,6 +24,7 @@ Vue.component('comment', require('./components/CommentComponent.vue').default);
 Vue.component('article-card', require('./components/ArticleCardComponent.vue').default);
 Vue.component('view-article', require('./components/ViewArticleComponent.vue').default);
 Vue.component('preview-article', require('./components/PreviewArticleComponent.vue').default);
+Vue.component('tag', require('./components/TagComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
