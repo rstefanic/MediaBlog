@@ -6,7 +6,7 @@
                 <h2>{{ this.summary }}</h2>
                 <h4>By: {{ this.author }}</h4>
                 <div class="apporx-read-time">
-                    Approximate Reading Time: {{ readingTime }} minutes
+                    Approximate Reading Time: {{ readingTime }}
                 </div>
             </div>
         </div>
@@ -26,10 +26,16 @@
                 let textLength = this.body.split(' ').length;
 
                 if (textLength > 0) {
-                    return Math.ceil(textLength / WPM);
+                    let minutes = Math.ceil(textLength / WPM);
+                    if (minutes > 1) {
+                        return minutes + " minutes";
+                    }
+                    else {
+                        return minutes + " minute";
+                    }
                 }
 
-                return 0;
+                return "Less than 1 minute";
             },
 
             heroImageStyle: function() {
