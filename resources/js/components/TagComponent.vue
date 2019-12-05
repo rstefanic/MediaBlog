@@ -1,7 +1,7 @@
 <!-- Vue component -->
 <template>
-  <div class='d-flex mt-5'>
-    <label >Tags</label>
+  <div class='d-flex mt-3 tag-container'>
+    <label>Tags</label>
     <multiselect 
       v-model="value" 
       tag-placeholder="Add this as new tag" 
@@ -50,6 +50,10 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style>
+  div.tag-container {
+    height: 40px;
+  }
+
   label {
     margin-top: 0.5rem;
   }
