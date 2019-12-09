@@ -23,6 +23,12 @@ class TagController extends Controller
         return view('tags.index')->withTags($tags);
     }
 
+    public function all()
+    {
+        $tags = Tag::all();
+        return response()->json($tags);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,11 +41,14 @@ class TagController extends Controller
             'name' => 'required|max:255'
         ]);
 
+        // TODO(robert): Fix for incoming JSON response
+        // $new_tag_name = request()->json('newTagName');
+
         $tag = new Tag();
         $tag->name = $request->name;
         $tag->save();
 
-        return redirect()->route('tags.index');
+        return $tag->id;
     }
 
     /**
