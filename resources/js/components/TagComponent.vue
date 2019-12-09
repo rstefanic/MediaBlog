@@ -24,15 +24,17 @@ export default {
   },
   data () {
     return {
-      value: [
-        { name: 'Simpsons', code: '2' }
-      ],
-      options: [
-        { name: 'Story Arcs', code: '1' },
-        { name: 'Simpsons', code: '2' },
-        { name: 'Criticism', code: '3' }
-      ]
+      value: [],
+      options: []
     }
+  },
+  mounted: function() {
+    axios.get('/tags/all')
+      .then(({ data }) => {
+        this.options = data.map(tag => {
+          return { name: tag.name, code: tag.id };
+        })
+      });
   },
   methods: {
     addTag (newTag) {
@@ -40,8 +42,15 @@ export default {
         name: newTag,
         code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
       }
-      this.options.push(tag)
-      this.value.push(tag)
+
+      axios.post('/tags', { tag_name: tag.name })
+        .then(response => {
+          console.log(response);
+
+          // TODO(robert): Fix so that the tag.id is updated
+          this.options.push(tag)
+          this.value.push(tag)
+        });
     }
   }
 }
