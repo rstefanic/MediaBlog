@@ -25,6 +25,7 @@ Route::get('/about', function() {
 });
 
 Route::post('/comment/{article}', 'CommentController@store')->name('comment.store');
+Route::get('/tags/all', 'TagController@all')->name('tags.all');
 Route::resource('tags', 'TagController', ['except' => ['create']]);
 
 Route::get('/donate', 'DonateController@index')->name('donate.show');
