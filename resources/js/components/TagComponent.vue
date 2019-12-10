@@ -38,18 +38,18 @@ export default {
   },
   methods: {
     addTag (newTag) {
-      const tag = {
-        name: newTag,
-        code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
-      }
+      axios.post('/tags', { name: newTag })
+        .then(({ data }) => {
+          const tag = {
+            name: newTag,
+            code: data
+          };
 
-      axios.post('/tags', { tag_name: tag.name })
-        .then(response => {
-          console.log(response);
-
-          // TODO(robert): Fix so that the tag.id is updated
           this.options.push(tag)
           this.value.push(tag)
+        })
+        .catch(err => {
+          alert("An unexpected error occurred. Could not create new tag.");
         });
     }
   }
