@@ -41,8 +41,7 @@ class TagController extends Controller
             'name' => 'required|max:255'
         ]);
 
-        // TODO(robert): Fix for incoming JSON response
-        // $new_tag_name = request()->json('newTagName');
+        $tag_name = request()->json('name');
 
         $tag = new Tag();
         $tag->name = $request->name;
