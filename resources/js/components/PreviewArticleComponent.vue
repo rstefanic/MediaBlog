@@ -81,4 +81,10 @@
       display: table-cell;
       vertical-align: middle;
     }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
 </style>
