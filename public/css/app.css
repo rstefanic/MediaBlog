@@ -11322,3 +11322,9 @@ footer {
   font-size: 1em;
 }
 
+.article-body img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
